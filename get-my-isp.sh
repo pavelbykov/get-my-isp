@@ -1,6 +1,9 @@
 #!/bin/bash
-PUBIP=`dig +short myip.opendns.com @resolver1.opendns.com`
-ANSWER=`dig +noall +answer -x $PUBIP resolver1.opendns.com | head -n 1 | awk -F. '{print $(NF-2)}'`
-AUTHORITY=`dig +noall +authority -x $PUBIP resolver1.opendns.com | head -n 1 | awk -F. '{print $(NF-2)}'`
-RESPONSE=$ANSWER$AUTHORITY
-printf '%s\n' "${RESPONSE//[[:digit:]]/}"
+
+# Get name of crrent ISP by first finding out public IP address and then resolving it's owner's name
+
+PUBIPADDRESS=`./get-pub-ip.sh`
+ISPNAME=`./get-isp-name.sh $PUBIPADDRESS`
+
+echo "Public IP address: $PUBIPADDRESS"
+echo "ISP Name: $ISPNAME"
