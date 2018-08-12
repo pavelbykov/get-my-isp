@@ -10,8 +10,6 @@ Usage
 
 
 
-
-
 Get ISP Name
 ============
 
@@ -25,16 +23,14 @@ Usage
 
 
 
-
-
-
 Get My ISP name
 ===============
 
 Get name of crrent ISP by first finding out public IP address and then resolving it's owner's name
 
-
 Usage
 -----
 ./get-my-isp-name.sh
+
+
 
